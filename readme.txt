@@ -2,5 +2,11 @@
 Git is a version control system
 Git is free software
 
-francised
-clavin
+git add readme.txt
+git commit -m "add status"
+
+git status
+git log
+git reflog
+git reset --hard HEAD^
+git reset --hard 7f90afs
