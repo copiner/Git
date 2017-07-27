@@ -8,6 +8,7 @@ git commit -m "add status"
 git status
 git log
 git reflog
+
 git reset --hard HEAD^
 git reset --hard 7f90afs
 
