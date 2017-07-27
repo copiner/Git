@@ -15,3 +15,5 @@ git reset --hard 7f90afs
 git diff HEAD -- readme.txt
 
 git reset HEAD readme.txt
+
+git rm readme.txt
