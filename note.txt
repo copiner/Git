@@ -10,9 +10,5 @@ git merge dev
 
 git branch -d dev
 
-<<<<<<< HEAD
 
 git log --graph --pretty=oneline --abbrev-commit /*log*/
-=======
-git log --graph --pretty=oneline --abbrev-commit /*log*/
->>>>>>> dev
