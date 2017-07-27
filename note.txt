@@ -5,3 +5,6 @@ git checkout -b dev
 
 git branch
 git merge dev
+
+
+git log --graph --pretty=oneline --abbrev-commit
