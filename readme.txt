@@ -10,7 +10,7 @@ git log
 git reflog
 git reset --hard HEAD^
 git reset --hard 7f90afs
-git reset HEAD readme.txt
 
 git diff HEAD -- readme.txt
 
+git reset HEAD readme.txt
