@@ -14,3 +14,13 @@ git branch -d dev
 git log --graph --pretty=oneline --abbrev-commit /*log*/
 
 --no-ff
+git merge --no-ff -m "merge with noff" dev
+
+stash
+git stash
+
+git stash apply   git stash drop
+
+git stash pop
+
+git stash apply stash@{0}
