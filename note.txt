@@ -14,3 +14,5 @@ git branch -d dev
 git log --graph --pretty=oneline --abbrev-commit /*log*/
 
 --no-ff
+
+git stash
