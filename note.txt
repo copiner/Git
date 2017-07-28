@@ -28,4 +28,8 @@ git stash apply stash@{0}
 
 git branch -D feature_sass
 
+<<<<<<< HEAD
 git pull
+=======
+git checkout -b dev origin/dev
+>>>>>>> 507a6cdedc3cf7e6da24afffddafa8ba98118494
