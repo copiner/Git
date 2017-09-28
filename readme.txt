@@ -54,3 +54,21 @@ Git删除远程仓库中的文件
 git rm readme.txt
 git commit -m "remove readme.txt"
 git push -u origin master
+
+
+分支管理
+创建与合并分支
+创建dev分支，然后切换到dev分支
+git checkout -b dev
+等同于以下两条命令
+git branch dev
+git checkout dev
+
+查看当前分支
+git branch
+
+dev分支的工作成果合并到master分支上
+git merge dev
+
+删除dev分支
+git branch -d dev
