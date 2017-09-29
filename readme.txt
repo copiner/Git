@@ -28,7 +28,7 @@ git diff readme.txt
 回退到上一个版本
 git reset --hard HEAD^
 
-版本库的修改日志
+版本库的修改日志，
 git log
 git log --pretty=oneline
 
@@ -38,8 +38,15 @@ git reset --hard HEAD^
 回到之前某个版本
 git reset --hard 3628164
 
-Git提供了一个命令，用来记录你的每一次命令
+再回到之前版本,找到之前commit id,就可以了
+git reset --hard 3f7f1308
+
+另外：
+回退到了某个版本，后悔了，想恢复到某版本，
+Git提供了一个命令，用来记录你的每一次命令，可以找到commit id。
 git reflog
+
+git reset --hard 3f5f1308
 
 添加到远程库
 git remote add origin git@github.com:yyyyyyyyy/xxxxx.git
