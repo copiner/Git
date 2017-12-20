@@ -61,3 +61,15 @@ git rm -r storage/
 
 git commit -m "remove readme.txt file"
 git push origin master
+
+
+
+创建SSH Key
+
+ssh-keygen -t rsa -C "youremail@example.com"
+
+
+
+ warning : LF will be replaced by CRLF ...
+
+git config core.autocrlf true

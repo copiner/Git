@@ -1,0 +1,83 @@
+在参与开发时同步你的远程代码仓库，GitHub上专门有一个供大家练习的Repository Spoon-Knife
+
+1.Fork一个你准备参与开发的代码库，这样在自己的GitHub仓库中就会有该代码库
+
+2.Clone 到你本地
+git clone https://github.com/<user>/Spoon_Knife.git 
+
+3.添加远程仓库
+cd Spoon_Knife
+
+git remote -v
+
+(git remote 可以查看我们配置了那些远程仓库服务器,并列出简写 -v 可以帮助查看远程仓库服务器相对应的URL)
+
+origin  git@github.com:copiner/Spoon-Knife.git (fetch)
+
+origin  git@github.com:copiner/Spoon-Knife.git (push)
+
+git remote add upstream https://github.com/octocat/Spoon-Knife.git
+
+
+(可以添加一个新的远程Git仓库，同时制定自定义的简写名称)
+
+
+验证你 fork 里新指明的这个 upstream 仓库，再次输入 git remote -v。你将会看到你 fork 的 URL 作为原始的地址，而原始的仓库的 URL 作为 upstream。
+
+git remote -v
+
+origin  https://github.com/copiner/Spoon-Knife.git (fetch)
+origin  https://github.com/copiner/Spoon-Knife.git (push)
+upstream        https://github.com/octocat/Spoon-Knife.git (fetch)
+upstream        https://github.com/octocat/Spoon-Knife.git (push)
+
+现在，你可以保持你的 fork 与 upstream 的仓库的同步
+
+
+一般的开源代码库，都有master分支和develop分支，master分支比较稳定，用来发布。develop分支一般用来开发。 
+
+
+
+由于开源的项目，会有很多人同时参与开发，所以需要经常同步其他人的开发。从远程上游（upstream）仓库同步代码到本地和自己fork来的GitHub仓库中
+
+同步远程仓库，从远程分支拉取代码到本地  
+
+git fetch upstream
+
+或者
+
+git pull upstream  master 
+
+
+会看到比较详细的输出信息，从远程仓库拉取其新的分支和各自的提交，保存到本地仓库
+
+可以通过以下命令查看本地的所有分支：
+
+git branch -va
+
+合并master分支
+
+git checkout master
+
+git merge upstream/master
+
+
+本地更新到自己的远程服务器上
+
+git push origin master
+
+
+
+git clone这个命令克隆一个本地库。
+之后它会自动克隆一个master分支。
+之后不会克隆任何一个分支下来的。
+假定你需要一个dev（此处假定远程库中已经存在此分支，也就是你需要克隆的）分支用于开发的话，你需要在dev分支上开发，就必须创建远程origin的dev分支到本地，于是他用这个命令创建本地dev分支：
+
+git checkout -b change-the-title origin/change-the-title
+
+
+再同步下：
+
+$ git pull
+
+这样就实现了克隆dev分支
