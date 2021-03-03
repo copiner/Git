@@ -17,3 +17,23 @@ git diff HEAD -- readme.txt
 git reset HEAD readme.txt
 
 git rm readme.txt
+
+### 20210303
+
+git add files
+git commit
+
+git reset -- files
+git checkout --files
+
+git commit (files|-a)
+git checkout HEAD --files
+
+git diff
+
+git log
+
+
+git reset
+
+git reset --hard
