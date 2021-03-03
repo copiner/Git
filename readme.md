@@ -62,22 +62,72 @@ git rm -r storage/
 git commit -m "remove readme.txt file"
 git push origin master
 
+
+
+### pull
+```
+git pull <远程主机名> <远程分支名>:<本地分支名>
+```
+
+如果远程分支是与当前分支合并，则冒号后面的部分可以省略
+git pull origin master
+
+git pull是拉取远程分支更新到本地仓库的操作。
+比如远程仓库里的学习资料有了新内容，需要把新内容下载下来的时候，就可以使用git pull命令。
+事实上，git pull是相当于从远程仓库获取最新版本，然后再与本地分支merge（合并）
+
+```bash
+#将远程主机origin的master分支拉取过来，与本地的dev分支合并
+git pull origin master:dev
+```
+
+
+### fetch
+git fetch不会进行合并，执行后需要手动执行git merge合并，而git pull拉取远程分之后直接与本地分支进行合并
+
+git fetch更新本地仓库的两种用法
+
+```bash
+# 方法一
+#将远程主机origin的master分支拉取过来，与本地的dev分支合并
+git fetch origin master:dev
+git merge dev
+```
+
+```bash
+$ git fetch origin master                #从远程的origin仓库的master分支下载代码到本地的origin maste
+$ git log -p master.. origin/master      #比较本地的仓库和远程参考的区别
+$ git merge origin/master                #把远程下载下来的代码合并到本地仓库，远程的和本地的合并
+```
+
+```bash
+# 方法二
+$ git fetch origin master:temp           #从远程的origin仓库的master分支下载到本地并新建一个分支temp
+$ git diff temp                          #比较master分支和temp分支的不同
+$ git merge temp                         #合并temp分支到master分支
+$ git branch -d temp                     #删除temp
+```
 ### branch
 
+新建分支
 git branch dev
+
+切换分支
 git checkout dev
 
 
 git checkout -b dev
 
-
+查看当前分支
 git branch
+
+查看所有分支
+git branch -a
+
 git merge dev
 
+删除分支
 git branch -d dev
 
-
-### pull
-
-
-### fetch
+删除远程仓库分支
+git push origin --delete dev
