@@ -225,3 +225,76 @@ git merge dev
 -a
 --all
 ```
+
+### Git查看某个文件修改记录
+
+1. git log filename
+
+查看提交记录
+
+
+
+2. git log -p filename
+
+可以显示每次提交的diff
+
+
+
+3. 查看某次提交中的某个文件变化，可以直接加上fileName
+
+git show c5e69804bbd9725b5dece57f8cbece4a96b9f80b filename
+
+TODO
+
+### 暂存
+
+当单人维护多版本的分支开发中，不小心弄混了分支，将自己新的需求代码混淆到了其他的分支上。可以使用git 的本地暂存。
+使用以下命令，暂存本地未提交的修改
+
+将工作区的修改保存到一个特定的空间去，然后将工作区的修改撤销掉。
+需要注意的是，只能保存git已经跟踪的文件，新建文件并且没有commit过的就无法保存了，
+而 git stash 暂存起来的修改是可以应用到当前或者其他分支上面去的
+```
+git stash
+```
+然后，切换到其他分支，也就是你要将修改合并到的分支
+```
+git switch xxx
+```
+然后,使用以下命令，弹出暂存的修改
+```
+git stash pop
+```
+
+```
+git stash drop 删除某条暂存
+git stash apply 应用某条暂存到当前分支
+git stash clear 清空所有的暂存条目
+```
+
+### 其他
+git中的checkout命令承载了分支操作和文件恢复的部分功能，有点复杂，并且难以使用和学习，
+社区解决将这两部分功能拆分开，在git 2.23.0中引入了两个新的命令switch和restore用来取代checkout
+
+新的switch命令用来接替checkout的功能，但switch不能切换到commit id
+```
+git switch aaa # 切换到 aaa分支
+git switch -c aaa # 创建aaa，然后切换到 aaa分支
+```
+
+原来git中文件恢复涉及到两个命令，一个是checkout，一个是reset，reset除了重置分支之外，还提供了恢复文件的能力
+```
+git checkout -- aaa # 从staged中恢复aaa到worktree
+git reset -- aaa # 从repo中恢复aaa到staged
+git checkout -- HEAD aaa # 从repo中恢复aaa到staged和worktree
+git reset --hard -- aaa # 同上
+```
+
+新的restore命令专门用来恢复staged和worktree的文件
+```
+git restore --worktree aaa # 从staged中恢复aaa到worktree
+git restore --staged aaa # 从repo中恢复aaa到staged
+git restore --staged --worktree aaa # 从repo中恢复aaa到staged和worktree
+
+git restore --source=<commit>  # 从指定commit中恢复aaa到worktree
+```
